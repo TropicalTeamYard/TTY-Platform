@@ -9,10 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\App;
 
 use App\Consts\UserIdentity;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 /**
- * @method static create(Array $arr)
- * @method static where(String $column, String $value)
+ * @method static where(string $string, String $name)
  */
 class User extends Model
 {
@@ -40,9 +41,22 @@ class User extends Model
     ];
 
     public static function createUser(String $name, String $nickname, String $email, String $password, String $identity = UserIdentity::NORMAL){
+        if(User::findByName($name) != null){
+            return null;
+        }
+
         $row = User::create(
-            [ 'name' => $name ]
+            [
+                'name' => $name,
+                'identity' => $identity,
+                'uid' => Str::random(24),
+                'nickname' => $nickname,
+                'email' => $email,
+                'password' => Hash::make(encrypt($password)),
+            ]
         );
+
+        return $row;
     }
 
 
