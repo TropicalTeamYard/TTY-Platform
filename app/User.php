@@ -62,6 +62,6 @@ class User extends Model
 
 
     public static function findByName(String $name){
-        $row = User::where('name',$name)->first();
+        return User::where('name',$name)->first();
     }
 }

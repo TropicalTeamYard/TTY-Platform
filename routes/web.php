@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('test', 'Api\UserController@test');
+
+Route::group(['prefix' => 'user'], function (){
+    Route::any('create','Api\UserController@create');
+});

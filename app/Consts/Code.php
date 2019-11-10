@@ -27,7 +27,7 @@ class Msg
     private static $msg = [
         Code::OK => '请求成功',
         Code::ARGUMENT_ERROR => '请求参数错误',
-        
+        Code::USER_EXISTED => '该用户名已存在',
     ];
 }
 
