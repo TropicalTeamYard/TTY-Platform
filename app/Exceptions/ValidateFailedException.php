@@ -6,7 +6,7 @@ namespace App\Exceptions;
 use Exception;
 use Throwable;
 
-class ValidateFailed extends Exception
+class ValidateFailedException extends Exception
 {
     public function __construct($message = "", $code = 0, Throwable $previous = null)
     {

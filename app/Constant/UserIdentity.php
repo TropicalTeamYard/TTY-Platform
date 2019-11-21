@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Consts;
+namespace App\Constant;
 
 
 class UserIdentity

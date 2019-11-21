@@ -15,9 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('test', 'Api\UserController@test');
-
-Route::group(['prefix' => 'user'], function (){
-    Route::any('create','Api\UserController@create');
+Route::group(['prefix' => 'test'], function () {
+    Route::get('','TestController@welcome');
+    Route::get('encrypt_password','TestController@encryptPassword');
 });
+
+Route::get('/hello', 'IndexController@printHello');
+
+
